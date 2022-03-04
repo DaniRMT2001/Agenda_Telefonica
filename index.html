@@ -8,7 +8,7 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <title>Document</title>
-    
+
 </head>
 
 <body>
@@ -60,26 +60,27 @@
                 <h1><em> <strong> Nuevo Contacto </strong></em> </h1>
                 <div>
                     <div class="mb-3">
-                        <label for="Nombre" class="form-label">Nombre</label>
+                        <label for="Nombre" class="form-label h5">Nombre</label>
                         <input type="text" class="form-control" id="Nombre">
                     </div>
                     <div class="mb-3">
-                        <label for="Telefono" class="form-label">Telefono</label>
+                        <label for="Telefono" class="form-label h5">Telefono</label>
                         <input type="number" class="form-control" id="Telefono">
                     </div>
-                    <button type="button"class="btn btn-success" onclick="agregar()">Agregar</button>
+                    <button type="button" class="btn btn-outline-primary" onclick="agregar()">Agregar</button>
+                    <button type="button" class="btn btn-outline-primary ms-2 d-none" id="btn-edit" onclick="Editar()">Editar</button>
                     <div class="alert alert-danger mt-4 d-none" id="alerta" role="alert">
                         Ya existe este contacto
-                      </div>
+                    </div>
                 </div>
             </div>
 
             <div class="col-md-6 lista ps-4">
                 <div class="p-4 bg-light border">
-                    <h1 class="d-flex gap-3 mb-4 "><em> <strong>Contacto</strong></em> <input onkeyup="buscar(this.value)" type="search" class="form-control"
-                            placeholder="Buscar"> </h1>
+                    <h1 class="d-flex gap-3 mb-4 "><em> <strong>Contacto</strong></em> <input
+                            onkeyup="buscar(this.value)" type="search" class="form-control" placeholder="Buscar"> </h1>
                     <ul class="list-group mb-2" id="listar">
-                        
+
                     </ul>
                     <nav aria-label="Page navigation example ">
                         <ul class="pagination justify-content-end">
@@ -90,7 +91,7 @@
                             <li class="page-item"><a class="page-link" href="#">2</a></li>
                             <li class="page-item"><a class="page-link" href="#">3</a></li>
                             <li class="page-item">
-                                <a class="page-link" href="#" >Next</a>
+                                <a class="page-link" href="#">Next</a>
                             </li>
                         </ul>
                     </nav>
@@ -99,15 +100,18 @@
             </div>
         </div>
     </div>
+    
 
 
 
 
-
-   
     <script src="script.js"></script>
- <script src="https://kit.fontawesome.com/39f260aa11.js" crossorigin="anonymous"></script>
-   
+    <script src="https://kit.fontawesome.com/39f260aa11.js" crossorigin="anonymous"></script>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+
 </body>
 
 </html>

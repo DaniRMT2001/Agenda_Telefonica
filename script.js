@@ -1,4 +1,5 @@
 let contactos = [];
+let contactoEditar = {};
 
 function agregar() {
     let Nombre = document.getElementById("Nombre").value;
@@ -9,7 +10,7 @@ function agregar() {
         alerta.classList.remove("d-none");
         return;
     };
-
+    limpiar();
     alerta.classList.add("d-none")
 
     let NuevoContacto = {
@@ -26,7 +27,9 @@ function list(lista) {
     listar = document.getElementById("listar");
     listar.innerHTML = " ";
     for (let x of lista) {
-        listar.innerHTML += `<li class="list-group-item">${x.Nombre} - ${x.Telefono} <button class="btn btn-danger float-end fa fa-trash" onclick="eliminar('${x.Nombre}')"><i class=""></i></button></li>`
+        listar.innerHTML += `<li class="list-group-item gap-3 ">${x.Nombre} - ${x.Telefono} 
+        <button class="btn btn-danger float-end fa fa-trash " onclick="eliminar('${x.Nombre}')"></button>
+        <button class="btn btn-primary float-end fa fa-edit me-1 " onclick="Datos_Edit('${x.Nombre}')" ></button></li>`
     }
 }
 
@@ -49,4 +52,40 @@ function existe(palabra) {
         return x.Nombre == palabra
     });
     return respuesta
+}
+
+function Datos_Edit(Nombre) {
+    let contacto = contactos.find(c => c.Nombre == Nombre);
+    contactoEditar = contacto;
+
+
+    document.getElementById("Nombre").value = contacto.Nombre;
+    document.getElementById("Telefono").value = contacto.Telefono;
+
+    document.getElementById("btn-edit").classList.remove("d-none")
+
+}
+
+function limpiar() {
+    document.getElementById("Nombre").value = " ";
+    document.getElementById("Telefono").value = " ";
+}
+
+function Editar() {
+    let nom = document.getElementById("Nombre").value;
+    let tel = document.getElementById("Telefono").value;
+
+    contactos.map(c => {
+        if (c.Nombre == contactoEditar.Nombre) {
+            c.Nombre = nom;
+            c.Telefono = tel;
+        }
+
+    })
+    list(contactos)
+    limpiar()
+
+    document.getElementById("btn-edit").classList.add("d-none")
+
+
 }
